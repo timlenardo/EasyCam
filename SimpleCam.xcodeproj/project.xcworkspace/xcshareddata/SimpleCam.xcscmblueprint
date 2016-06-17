@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "71720A38AB9B28A89229403132D4BE8A9FE7697B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "71720A38AB9B28A89229403132D4BE8A9FE7697B" : 0,
+    "19E4729841718125FAFCC11F631235B9C6BE1B7A" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "04AA6FAB-7D20-498F-962D-CF24FB2733B7",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "71720A38AB9B28A89229403132D4BE8A9FE7697B" : "SimpleCam\/",
+    "19E4729841718125FAFCC11F631235B9C6BE1B7A" : "carousel\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SimpleCam",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "SimpleCam.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ardot\/quickCam.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "19E4729841718125FAFCC11F631235B9C6BE1B7A"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/timlenardo\/EasyCam.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "71720A38AB9B28A89229403132D4BE8A9FE7697B"
+    }
+  ]
+}
