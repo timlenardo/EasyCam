@@ -10,9 +10,8 @@
 
 #import "FocusIndicatorView.h"
 
-#define kIndicatorLoopingPeriod 400
-
 @interface FocusIndicatorView() {
+    UIImage *_lockImage;
     double _startTime;
     double _animationPosition;
     NSTimer *_animationTimer;
@@ -27,6 +26,7 @@
     
     [self setBackgroundColor:[UIColor clearColor]];
     self.alpha = 0.0;
+    _lockImage = [UIImage imageNamed:@"lock.png"];
     
     return self;
 }
@@ -36,13 +36,13 @@
     
     CGContextRef context = UIGraphicsGetCurrentContext();
     if (_isLocked) {
-        CGContextSetStrokeColorWithColor(context, [UIColor blueColor].CGColor);
-    } else {
-        CGContextSetStrokeColorWithColor(context, [UIColor whiteColor].CGColor);
+        CGFloat lockWidth = kLockWidth;
+        [_lockImage drawInRect:CGRectMake(rect.size.width / 2 - lockWidth / 2, 0, lockWidth, lockWidth)];
     }
     
+    CGContextSetStrokeColorWithColor(context, [UIColor whiteColor].CGColor);
     CGFloat lineWidth = 1;
-    CGPoint center = CGPointMake(rect.size.width / 2, rect.size.height / 2);
+    CGPoint center = CGPointMake(rect.size.width / 2, rect.size.height / 2 + (kLockWidth + kLockPaddingBottom) / 2);
     
     // Confusing logic here. '_animationPositon' increments from 0->2 and then resets.
     // This translates that into an oscilation between 4 and 5 (radius for outer ring).
@@ -71,9 +71,11 @@
 #pragma animation
 
 - (void)startAnimation {
-    self.alpha = 1.0;
+    _isLocked = NO;
     _startTime = [[NSDate date] timeIntervalSince1970];
+    [self updateRing];
     _animationTimer = [NSTimer scheduledTimerWithTimeInterval:0.05f target:self selector:@selector(updateRing) userInfo:nil repeats:YES];
+    self.alpha = 1.0;
 }
 
 - (void)updateRing {
@@ -88,7 +90,6 @@
     [_animationTimer invalidate];
     _startTime = 0;
     _animationPosition = 0;
-    _isLocked = NO;
     [self setNeedsDisplay];
 }
 
@@ -96,7 +97,7 @@
 
 - (void)showAtPoint:(CGPoint)location {
     CGRect frame = self.frame;
-    CGRect newFrame = CGRectMake(location.x - frame.size.width / 2, location.y - frame.size.height / 2, frame.size.width, frame.size.height);
+    CGRect newFrame = CGRectMake(location.x - frame.size.width / 2, location.y - frame.size.height / 2 - (kLockWidth + kLockPaddingBottom) / 2, frame.size.width, frame.size.height);
     self.frame = newFrame;
     [self startAnimation];
 }
@@ -107,14 +108,15 @@
 
 - (void)finishAnimation {
     // Let the indicator show for a bit.
-    dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC * 0.5);
+    [self reset];
+    dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC * kAnimationDuration * 2);
     dispatch_after(delay, dispatch_get_main_queue(), ^(void){
-        [UIView animateWithDuration:0.50 animations:^{
+        [UIView animateWithDuration:(kAnimationDuration * 2) animations:^{
             self.alpha = 0;
         }
-                         completion:^(BOOL finished) {
-                             [self reset];
-                         }];
+        completion:^(BOOL finished) {
+            
+        }];
     });
 }
 

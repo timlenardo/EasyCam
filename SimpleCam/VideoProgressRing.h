@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "SimpleCamConstants.h"
+
 @interface VideoProgressRing : UIView
 
 - (instancetype)initWithFrame:(CGRect)frame withRingWidth:(CGFloat)ringWidth withMaxLength:(CGFloat)maxLength withIncrement:(CGFloat)increment;

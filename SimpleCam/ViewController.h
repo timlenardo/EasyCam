@@ -10,7 +10,7 @@
 
 #import "SimpleCameraViewController.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <SimpleCameraDelegate>
 
 @end
 

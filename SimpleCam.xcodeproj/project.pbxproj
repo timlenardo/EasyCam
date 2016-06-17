@@ -78,6 +78,7 @@
 		22B4BB011D14819A009D78FF /* ShutterButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShutterButtonView.m; sourceTree = "<group>"; };
 		22B4BB031D1481B6009D78FF /* VideoProgressRing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoProgressRing.h; sourceTree = "<group>"; };
 		22B4BB041D1481D1009D78FF /* VideoProgressRing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoProgressRing.m; sourceTree = "<group>"; };
+		22B4BB061D148974009D78FF /* SimpleCamConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleCamConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +190,7 @@
 				22B4BB011D14819A009D78FF /* ShutterButtonView.m */,
 				22B4BB031D1481B6009D78FF /* VideoProgressRing.h */,
 				22B4BB041D1481D1009D78FF /* VideoProgressRing.m */,
+				22B4BB061D148974009D78FF /* SimpleCamConstants.h */,
 			);
 			name = SimpleCam;
 			sourceTree = "<group>";

@@ -8,11 +8,13 @@
 
 @import Photos;
 
+#include "SimpleCamConstants.h"
+
 @protocol GalleryButtonDelegate <NSObject>
 - (void)onGalleryButtonTapped;
 @end
 
-@interface GalleryThumbnailView : UIView <PHPhotoLibraryChangeObserver>
+@interface GalleryThumbnailView : UIButton <PHPhotoLibraryChangeObserver>
 
 @property (nonatomic, readwrite, weak) id<GalleryButtonDelegate> galleryButtonDelegate;
 

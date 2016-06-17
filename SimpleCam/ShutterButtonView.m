@@ -27,13 +27,12 @@
     CGFloat centerX = frame.size.width / 2;
     CGFloat centerY = frame.size.height / 2;
     
-    CGFloat startX = centerX - SHUTTER_BUTTON_DEFAULT_WIDTH / 2;
-    CGFloat startY = centerY - SHUTTER_BUTTON_DEFAULT_WIDTH / 2;
+    CGFloat startX = centerX - kShutterButtonOuterWidth / 2;
+    CGFloat startY = centerY - kShutterButtonOuterWidth / 2;
     
-    _shutterButton = [[UIControl alloc] initWithFrame:CGRectMake(startX, startY, SHUTTER_BUTTON_DEFAULT_WIDTH, SHUTTER_BUTTON_DEFAULT_WIDTH)];
-    _shutterButton.alpha = 0.5;
-    _shutterButton.layer.cornerRadius = SHUTTER_BUTTON_DEFAULT_WIDTH / 2;
-    _shutterButton.backgroundColor = [UIColor whiteColor];
+    _shutterButton = [[UIControl alloc] initWithFrame:CGRectMake(startX, startY, kShutterButtonOuterWidth, kShutterButtonOuterWidth)];
+    _shutterButton.layer.cornerRadius = kShutterButtonOuterWidth / 2;
+    _shutterButton.backgroundColor = kShutterButtonOuterColor;
     
     // Antialiasing the edges, makes it look a bit cleaner
     _shutterButton.layer.borderWidth = 3;
@@ -43,13 +42,12 @@
     
     [self addSubview:_shutterButton];
     
-    CGFloat startXInternal = centerX - SHUTTER_BUTTON_INTERNAL_WIDTH / 2;
-    CGFloat startYInternal = centerY - SHUTTER_BUTTON_INTERNAL_WIDTH / 2;
+    CGFloat startXInternal = centerX - kShutterButtonInnerWidth / 2;
+    CGFloat startYInternal = centerY - kShutterButtonInnerWidth / 2;
     
-    _shutterButtonInternal = [[UIControl alloc] initWithFrame:CGRectMake(startXInternal, startYInternal, SHUTTER_BUTTON_INTERNAL_WIDTH, SHUTTER_BUTTON_INTERNAL_WIDTH)];
-    _shutterButtonInternal.alpha = 1.0;
-    _shutterButtonInternal.layer.cornerRadius = SHUTTER_BUTTON_INTERNAL_WIDTH / 2;
-    _shutterButtonInternal.backgroundColor = [UIColor whiteColor];
+    _shutterButtonInternal = [[UIControl alloc] initWithFrame:CGRectMake(startXInternal, startYInternal, kShutterButtonInnerWidth, kShutterButtonInnerWidth)];
+    _shutterButtonInternal.layer.cornerRadius = kShutterButtonInnerWidth / 2;
+    _shutterButtonInternal.backgroundColor = kShutterButtonInnerColor;
     
     // Antialiasing the edges, makes it look a bit cleaner
     _shutterButtonInternal.layer.borderWidth = 3;
@@ -60,9 +58,9 @@
     [self addSubview:_shutterButtonInternal];
     
     // Initialize progress ring with same frame as the outer shutterButton
-    _videoProgressRing = [[VideoProgressRing alloc] initWithFrame:CGRectMake(startX, startY, SHUTTER_BUTTON_DEFAULT_WIDTH, SHUTTER_BUTTON_DEFAULT_WIDTH)
-                                                    withRingWidth:SHUTTER_BUTTON_PROGRESS_WIDTH
-                                                    withMaxLength:LONG_PRESS_MAX_LENGTH_SEC
+    _videoProgressRing = [[VideoProgressRing alloc] initWithFrame:CGRectMake(startX, startY, kShutterButtonOuterWidth, kShutterButtonOuterWidth)
+                                                    withRingWidth:kShutterButtonRecordingProgressWidth
+                                                    withMaxLength:kMaxVideoLengthSec
                                                     withIncrement:-1.0];
     
     [_shutterButton addTarget:self action:@selector(shutterButtonTouchDown) forControlEvents:(UIControlEventTouchDown)];
@@ -76,7 +74,7 @@
 
 - (void)shutterButtonTouchDown {
     _isPressed = YES;
-    [self performSelector:@selector(maybeStartRecording) withObject:self afterDelay:LONG_PRESS_START_THRESHOLD_SEC];
+    [self performSelector:@selector(maybeStartRecording) withObject:self afterDelay:kLongPressMinimumDuration];
 }
 
 - (void)shutterButtonTouchUp {
@@ -109,8 +107,8 @@
     [self addSubview:_videoProgressRing];
     [_videoProgressRing startAnimation];
     
-    CGFloat expansionFactor = (CGFloat)SHUTTER_BUTTON_EXPANDED_WIDTH / SHUTTER_BUTTON_DEFAULT_WIDTH;
-    [UIView animateWithDuration:LONG_PRESS_START_ANIMATION_DURATION_SEC
+    CGFloat expansionFactor = (CGFloat)kShutterButtonExpandedWidth / kShutterButtonOuterWidth;
+    [UIView animateWithDuration:kAnimationDuration
                      animations:^(void) {
                          _shutterButton.transform = CGAffineTransformScale(_shutterButton.transform, expansionFactor, expansionFactor);
                          _videoProgressRing.transform = CGAffineTransformScale(_videoProgressRing.transform, expansionFactor, expansionFactor);
@@ -128,8 +126,8 @@
     _shutterButtonInternal.backgroundColor = [UIColor whiteColor];
     [_videoProgressRing stopAnimation];
     
-    CGFloat contractionFactor = (CGFloat)SHUTTER_BUTTON_DEFAULT_WIDTH / SHUTTER_BUTTON_EXPANDED_WIDTH;
-    [UIView animateWithDuration:LONG_PRESS_START_ANIMATION_DURATION_SEC
+    CGFloat contractionFactor = (CGFloat)kShutterButtonOuterWidth / kShutterButtonExpandedWidth;
+    [UIView animateWithDuration:kAnimationDuration
                      animations:^(void) {
                          _shutterButton.transform = CGAffineTransformScale(_shutterButton.transform, contractionFactor, contractionFactor);
                          _videoProgressRing.transform = CGAffineTransformScale(_videoProgressRing.transform, contractionFactor, contractionFactor);

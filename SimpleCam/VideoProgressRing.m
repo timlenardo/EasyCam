@@ -43,7 +43,7 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetStrokeColorWithColor(context, [UIColor redColor].CGColor);
     
-    CGFloat lineWidth = 5;
+    CGFloat lineWidth = kShutterButtonRecordingProgressWidth;
     CGPoint center = CGPointMake(rect.size.width / 2, rect.size.height / 2);
     CGFloat radius = center.x - lineWidth * 0.5;
     CGFloat startAngle = -((float)M_PI / 2);

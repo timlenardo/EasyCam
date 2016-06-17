@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "SimpleCamConstants.h"
+
 @interface FocusIndicatorView : UIView
 
 - (void)showAtPoint:(CGPoint)location;

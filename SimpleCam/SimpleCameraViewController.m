@@ -27,6 +27,7 @@
 @property AVCaptureTorchMode torchMode;
 @property BOOL isZooming;
 @property BOOL isLongPressing;
+@property BOOL isAdjustFinished;
 @property CGFloat lastY;
 @property CGFloat startZoom;
 
@@ -50,10 +51,10 @@
     
     [[self view] setBackgroundColor:[UIColor blackColor]];
     // Add Video Output
-    AVCaptureDevice *VideoDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    if (VideoDevice) {
+    AVCaptureDevice *videoDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    if (videoDevice) {
         NSError *error;
-        videoInputDevice = [AVCaptureDeviceInput deviceInputWithDevice:VideoDevice error:&error];
+        videoInputDevice = [AVCaptureDeviceInput deviceInputWithDevice:videoDevice error:&error];
         if (!error) {
             if ([captureSession canAddInput:videoInputDevice]) {
                 [captureSession addInput:videoInputDevice];
@@ -80,7 +81,6 @@
     [[self PreviewLayer] setVideoGravity:AVLayerVideoGravityResizeAspectFill];
     
     // Add in movie file output
-    NSLog(@"Adding movie file output");
     movieFileOutput = [[AVCaptureMovieFileOutput alloc] init];
     Float64 TotalSeconds = 60;
     int32_t preferredTimeScale = 30; // fps
@@ -92,7 +92,6 @@
     }
     
     // Add in a still image output as well
-    NSLog(@"Adding still image output");
     stillImageOutput = [[AVCaptureStillImageOutput alloc] init];
     NSDictionary *outputSettings = [[NSDictionary alloc] initWithObjectsAndKeys:AVVideoCodecJPEG,AVVideoCodecKey,nil];
     [stillImageOutput setOutputSettings:outputSettings];
@@ -125,32 +124,33 @@
     CGFloat screenWidth = CGRectGetWidth(layerRect);
     
     // Focus Indicator
-    CGFloat focusHeight = 80;
+    CGFloat focusWidth = kFocusIndicatorWidth;
+    CGFloat focusHeight = kFocusIndicatorWidth + kLockWidth + kLockPaddingBottom;
     CGFloat startXFocus = screenWidth / 2 - focusHeight / 2;
     CGFloat startYFocus = screenHeight / 2 - focusHeight / 2;
-    CGRect focusFrame = CGRectMake(startXFocus, startYFocus, focusHeight, focusHeight);
+    CGRect focusFrame = CGRectMake(startXFocus, startYFocus, focusWidth, focusHeight);
     _focusView = [[FocusIndicatorView alloc] initWithFrame:focusFrame];
     [[self view] addSubview:_focusView];
     
     // Shutter Button
     CGFloat shutterHeight = screenHeight / 5;
-    CGRect shutterFrame = CGRectMake(0, screenHeight - shutterHeight, screenWidth, shutterHeight);
+    CGRect shutterFrame = CGRectMake(screenWidth / 2 - kShutterButtonOuterWidth / 2, screenHeight - shutterHeight, kShutterButtonOuterWidth, shutterHeight);
     _shutterView = [[ShutterButtonView alloc] initWithFrame:shutterFrame];
     _shutterView.shutterButtonDelegate = self;
     [[self view] addSubview:_shutterView];
     
     // Gallery Button
-    CGFloat galleryHeight = 45;
-    CGFloat startXGallery = screenWidth / 4 - galleryHeight / 2 - 20; // TODO this is hardcoded, because it's dependent on the shutter button size
-    CGFloat startYGallery = screenHeight - shutterHeight / 2 - galleryHeight / 2;
+    CGFloat galleryHeight = kGalleryWidth + kGalleryBadgeWidth / 4;
+    CGFloat startXGallery = screenWidth / 4 - galleryHeight / 2 - kShutterButtonOuterWidth / 4 + kGalleryBadgeWidth / 4;
+    CGFloat startYGallery = screenHeight - shutterHeight / 2 - galleryHeight / 2 - kGalleryBadgeWidth / 4;
     CGRect galleryFrame = CGRectMake(startXGallery, startYGallery, galleryHeight, galleryHeight);
     _galleryView = [[GalleryThumbnailView alloc] initWithFrame:galleryFrame];
     _galleryView.galleryButtonDelegate = self;
     [[self view] addSubview:_galleryView];
     
     // Flip Button
-    CGFloat flipHeight = 35;
-    CGFloat startXFlip = screenWidth / 4 * 3 - flipHeight / 2 + 20; // TODO this is hardcoded, because it's dependent on the shutter button size
+    CGFloat flipHeight = kIconWidth;
+    CGFloat startXFlip = screenWidth / 4 * 3 - flipHeight / 2 + kShutterButtonOuterWidth / 4;
     CGFloat startYFlip = screenHeight - shutterHeight / 2 - flipHeight / 2;
     CGRect flipFrame = CGRectMake(startXFlip, startYFlip, flipHeight, flipHeight);
     _flipView = [[FlipButtonView alloc] initWithFrame:flipFrame];
@@ -158,7 +158,7 @@
     [[self view] addSubview:_flipView];
     
     // Flash Button
-    CGFloat flashHeight = 35;
+    CGFloat flashHeight = kIconWidth;
     CGFloat startXFlash = screenWidth - flashHeight - flashHeight / 3;
     CGFloat startYFlash = flashHeight / 3;
     CGRect flashFrame = CGRectMake(startXFlash, startYFlash, flashHeight, flashHeight);
@@ -166,28 +166,19 @@
     _flashView.flashButtonDelegate = self;
     [[self view] addSubview:_flashView];
     
-    CGFloat exitHeight = 35;
-    CGFloat startXExit = exitHeight / 3;
-    CGFloat startYExit = exitHeight / 3;
-    CGRect exitFrame = CGRectMake(startXExit, startYExit, exitHeight, exitHeight);
-    _exitView = [[UIButton alloc] initWithFrame:exitFrame];
-    [_exitView setBackgroundImage:[UIImage imageNamed:@"x.png"] forState:UIControlStateNormal];
-    [_exitView addTarget:self action:@selector(onExitButtonTapped) forControlEvents:UIControlEventTouchUpInside];
-    [[self view] addSubview:_exitView];
-    
+    // Exit Button
+    if (kEnableDismissButton) {
+        CGFloat exitHeight = kIconWidth;
+        CGFloat startXExit = exitHeight / 3;
+        CGFloat startYExit = exitHeight / 3;
+        CGRect exitFrame = CGRectMake(startXExit, startYExit, exitHeight, exitHeight);
+        _exitView = [[UIButton alloc] initWithFrame:exitFrame];
+        [_exitView setBackgroundImage:[UIImage imageNamed:@"x.png"] forState:UIControlStateNormal];
+        [_exitView addTarget:self action:@selector(onExitButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+        [[self view] addSubview:_exitView];
+    }
+        
     [captureSession startRunning];
-    
-    UISwipeGestureRecognizer *leftRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipes:)];
-    leftRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
-    [leftRecognizer setNumberOfTouchesRequired:1];
-    leftRecognizer.cancelsTouchesInView = NO;
-    [[self view] addGestureRecognizer:leftRecognizer];
-    
-    UISwipeGestureRecognizer *rightRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipes:)];
-    rightRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
-    [rightRecognizer setNumberOfTouchesRequired:1];
-    rightRecognizer.cancelsTouchesInView = NO;
-    [[self view] addGestureRecognizer:rightRecognizer];
     
     UITapGestureRecognizer *singleFingerTapRecognizer =
     [[UITapGestureRecognizer alloc] initWithTarget:self
@@ -198,7 +189,7 @@
     UILongPressGestureRecognizer *longPressRecognizer =
     [[UILongPressGestureRecognizer alloc] initWithTarget:self
                                                   action:@selector(handleLongPress:)];
-    [longPressRecognizer setMinimumPressDuration:0.25];
+    [longPressRecognizer setMinimumPressDuration:kLongPressMinimumDuration];
     longPressRecognizer.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:longPressRecognizer];
     
@@ -217,7 +208,7 @@
     [self maybeWriteFlashMode];
 }
 
-- (AVCaptureDevice *)CameraWithPosition:(AVCaptureDevicePosition) Position {
+- (AVCaptureDevice *)cameraWithPosition:(AVCaptureDevicePosition) Position {
     NSArray *Devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
     for (AVCaptureDevice *Device in Devices) {
         if ([Device position] == Position) {
@@ -234,13 +225,19 @@
         AVCaptureDevicePosition position = [[videoInputDevice device] position];
         
         if (position == AVCaptureDevicePositionBack) {
-            newVideoInput = [[AVCaptureDeviceInput alloc] initWithDevice:[self CameraWithPosition:AVCaptureDevicePositionFront] error:&error];
+            newVideoInput = [[AVCaptureDeviceInput alloc] initWithDevice:[self cameraWithPosition:AVCaptureDevicePositionFront] error:&error];
         } else if (position == AVCaptureDevicePositionFront) {
-            newVideoInput = [[AVCaptureDeviceInput alloc] initWithDevice:[self CameraWithPosition:AVCaptureDevicePositionBack] error:&error];
+            newVideoInput = [[AVCaptureDeviceInput alloc] initWithDevice:[self cameraWithPosition:AVCaptureDevicePositionBack] error:&error];
         }
         
         if (newVideoInput != nil) {
             [captureSession beginConfiguration];		//We can now change the inputs and output configuration.  Use commitConfiguration to end
+            // add/remove observers!
+            [videoInputDevice.device removeObserver:self forKeyPath:@"adjustingExposure"];
+            [videoInputDevice.device removeObserver:self forKeyPath:@"adjustingFocus"];
+            [newVideoInput.device addObserver:self forKeyPath:@"adjustingExposure" options:NSKeyValueObservingOptionNew context:nil];
+            [newVideoInput.device addObserver:self forKeyPath:@"adjustingFocus" options:NSKeyValueObservingOptionNew context:nil];
+            
             [captureSession removeInput:videoInputDevice];
             if ([captureSession canAddInput:newVideoInput]) {
                 [captureSession addInput:newVideoInput];
@@ -273,18 +270,20 @@ didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL
     }
     if (recordedSuccessfully) {
         [_simpleCameraDelegate onVideoCaptured:outputFileURL];
-        __block PHObjectPlaceholder *placeholder;
+        if (kShouldAutoSave) {
+            __block PHObjectPlaceholder *placeholder;
         
-        [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
-            PHAssetChangeRequest* createAssetRequest = [PHAssetChangeRequest creationRequestForAssetFromVideoAtFileURL:outputFileURL];
-            placeholder = [createAssetRequest placeholderForCreatedAsset];
-        } completionHandler:^(BOOL success, NSError *error) {
-            if (success) {
-                // Successfully saved to gallery
-            } else {
-                // Failed to save to gallery
-            }
-        }];
+            [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+                PHAssetChangeRequest* createAssetRequest = [PHAssetChangeRequest creationRequestForAssetFromVideoAtFileURL:outputFileURL];
+                placeholder = [createAssetRequest placeholderForCreatedAsset];
+            } completionHandler:^(BOOL success, NSError *error) {
+                if (success) {
+                    // Successfully saved to gallery
+                } else {
+                    // Failed to save to gallery
+                }
+            }];
+        }
     }
 }
 
@@ -350,7 +349,9 @@ didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL
                                                           NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageSampleBuffer];
                                                           UIImage *image = [[UIImage alloc] initWithData:imageData];
                                                           [_simpleCameraDelegate onPhotoCaptured:image];
-                                                          [self saveImageToPhotoAlbum:image];
+                                                          if (kShouldAutoSave) {
+                                                              [self saveImageToPhotoAlbum:image];
+                                                          }
                                                       }];
     }
 }
@@ -369,7 +370,6 @@ didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL
 
 /** Video recording **/
 - (void) onShutterButtonLongPressDown {
-    NSLog(@"start recording video!");
     if (!isRecording) {
         isRecording = YES;
         [self maybeWriteTorchMode];
@@ -408,41 +408,45 @@ didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL
     [_simpleCameraDelegate onCameraDismissed];
 }
 
-- (void)handleSwipes:(UISwipeGestureRecognizer *)sender {
-    if ((sender.direction == UISwipeGestureRecognizerDirectionLeft) || (sender.direction == UISwipeGestureRecognizerDirectionRight)) {
-        [self toggleCameraFacing];
-    }
-}
-
 - (void)handleSingleTap:(UITapGestureRecognizer *)sender {
     CGPoint location = [sender locationInView:self.view];
+    _isAdjustFinished = NO;
     [self autoFocusAtPoint:location];
 }
 
 - (void)handleLongPress:(UILongPressGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateBegan){
         _isLongPressing = YES;
+        _isAdjustFinished = NO;
         CGPoint location = [sender locationInView:self.view];
         [self autoFocusAtPoint:location];
-        dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC * 0.5);
+        dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC * 1.0);
         dispatch_after(delay, dispatch_get_main_queue(), ^(void){
             if (_isLongPressing) {
                 NSError *error;
                 [videoInputDevice.device lockForConfiguration:&error];
-                [videoInputDevice.device setFocusMode:AVCaptureFocusModeLocked];
-                [videoInputDevice.device setExposureMode:AVCaptureExposureModeLocked];
+                if ([videoInputDevice.device isFocusModeSupported:AVCaptureFocusModeLocked]) {
+                    [videoInputDevice.device setFocusMode:AVCaptureFocusModeLocked];
+                }
+                if ([videoInputDevice.device isExposureModeSupported:AVCaptureExposureModeLocked]) {
+                    [videoInputDevice.device setExposureMode:AVCaptureExposureModeLocked];
+                }
                 [videoInputDevice.device unlockForConfiguration];
                 [_focusView lock];
             }
         });
     } else if (sender.state == UIGestureRecognizerStateEnded) {
         _isLongPressing = NO;
+        if (_isAdjustFinished) {
+            [_focusView finishAnimation];
+        }
     }
 }
 
 - (void)handlePan:(UIPanGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateBegan) {
         CGPoint translation = [sender translationInView:self.view];
+        
         // Handle horizontal swipe
         if (fabs(translation.x) > 0.0 && fabs(translation.y) == 0.0) {
             [self toggleCameraFacing];
@@ -493,9 +497,10 @@ didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL
 - (void)autoFocusAtPoint:(CGPoint)location {
     
     // Early exit for other thangs
-    if (CGRectContainsPoint(_galleryView.frame, location) ||
+    if (CGRectContainsPoint(_exitView.frame, location) ||
         CGRectContainsPoint(_flipView.frame, location) ||
         CGRectContainsPoint(_flashView.frame, location) ||
+        CGRectContainsPoint(_galleryView.frame, location) ||
         CGRectContainsPoint(_shutterView.frame, location)) {
         return;
     }
@@ -530,11 +535,21 @@ didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL
                         change:(NSDictionary *)change
                        context:(void *)context {
     if ([keyPath isEqualToString:@"adjustingExposure"]) {
-        // Need to do anything here? Seems like focus always takes longer.
+        if (!videoInputDevice.device.adjustingFocus) {
+            if (videoInputDevice.device.adjustingExposure == NO) {
+                if (!_isLongPressing) {
+                    [_focusView finishAnimation];
+                }
+                _isAdjustFinished = YES;
+            }
+        }
     }
     if ([keyPath isEqualToString:@"adjustingFocus"]) {
         if (videoInputDevice.device.adjustingFocus == NO) {
-            [_focusView finishAnimation];
+            if (!_isLongPressing) {
+                [_focusView finishAnimation];
+            }
+            _isAdjustFinished = YES;
         }
     }
 }
@@ -545,6 +560,12 @@ didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL
 {
     [super viewWillAppear:animated];
     isRecording = NO;
+}
+
+- (void)dealloc {
+    [videoInputDevice.device removeObserver:self forKeyPath:@"adjustingExposure"];
+    [videoInputDevice.device removeObserver:self forKeyPath:@"adjustingFocus"];
+    [captureSession stopRunning];
 }
 
 - (void)viewDidUnload {
@@ -558,13 +579,7 @@ didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL
     return YES;
 }
 
-// iOS 6+
 - (BOOL)shouldAutorotate {
-    return NO;
-}
-
-// Before iOS 6
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return NO;
 }
 

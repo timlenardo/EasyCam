@@ -16,11 +16,12 @@
 
 #define CAPTURE_FRAMES_PER_SECOND 20
 
+#import "GalleryThumbnailView.h"
 #import "FlashButtonView.h"
 #import "FlipButtonView.h"
-#import "GalleryThumbnailView.h"
-#import "ShutterButtonView.h"
 #import "FocusIndicatorView.h"
+#import "ShutterButtonView.h"
+#import "SimpleCamConstants.h"
 
 // Implement these for whatever view is presenting the QuickCam
 @protocol SimpleCameraDelegate <NSObject>
