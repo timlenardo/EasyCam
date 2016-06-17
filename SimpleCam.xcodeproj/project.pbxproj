@@ -1,0 +1,521 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		22B4BA9F1D147616009D78FF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B4BA9E1D147616009D78FF /* main.m */; };
+		22B4BAA21D147616009D78FF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B4BAA11D147616009D78FF /* AppDelegate.m */; };
+		22B4BAA51D147616009D78FF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B4BAA41D147616009D78FF /* ViewController.m */; };
+		22B4BAA81D147616009D78FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22B4BAA61D147616009D78FF /* Main.storyboard */; };
+		22B4BAAA1D147616009D78FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22B4BAA91D147616009D78FF /* Assets.xcassets */; };
+		22B4BAAD1D147616009D78FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22B4BAAB1D147616009D78FF /* LaunchScreen.storyboard */; };
+		22B4BAB81D147616009D78FF /* SimpleCamTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B4BAB71D147616009D78FF /* SimpleCamTests.m */; };
+		22B4BAC31D147616009D78FF /* SimpleCamUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B4BAC21D147616009D78FF /* SimpleCamUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		22B4BAB41D147616009D78FF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 22B4BA921D147616009D78FF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 22B4BA991D147616009D78FF;
+			remoteInfo = SimpleCam;
+		};
+		22B4BABF1D147616009D78FF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 22B4BA921D147616009D78FF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 22B4BA991D147616009D78FF;
+			remoteInfo = SimpleCam;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		22B4BA9A1D147616009D78FF /* SimpleCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		22B4BA9E1D147616009D78FF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		22B4BAA01D147616009D78FF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		22B4BAA11D147616009D78FF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		22B4BAA31D147616009D78FF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		22B4BAA41D147616009D78FF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		22B4BAA71D147616009D78FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		22B4BAA91D147616009D78FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		22B4BAAC1D147616009D78FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		22B4BAAE1D147616009D78FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22B4BAB31D147616009D78FF /* SimpleCamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleCamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		22B4BAB71D147616009D78FF /* SimpleCamTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimpleCamTests.m; sourceTree = "<group>"; };
+		22B4BAB91D147616009D78FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22B4BABE1D147616009D78FF /* SimpleCamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleCamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		22B4BAC21D147616009D78FF /* SimpleCamUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimpleCamUITests.m; sourceTree = "<group>"; };
+		22B4BAC41D147616009D78FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		22B4BA971D147616009D78FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22B4BAB01D147616009D78FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22B4BABB1D147616009D78FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		22B4BA911D147616009D78FF = {
+			isa = PBXGroup;
+			children = (
+				22B4BA9C1D147616009D78FF /* SimpleCam */,
+				22B4BAB61D147616009D78FF /* SimpleCamTests */,
+				22B4BAC11D147616009D78FF /* SimpleCamUITests */,
+				22B4BA9B1D147616009D78FF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		22B4BA9B1D147616009D78FF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				22B4BA9A1D147616009D78FF /* SimpleCam.app */,
+				22B4BAB31D147616009D78FF /* SimpleCamTests.xctest */,
+				22B4BABE1D147616009D78FF /* SimpleCamUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		22B4BA9C1D147616009D78FF /* SimpleCam */ = {
+			isa = PBXGroup;
+			children = (
+				22B4BAA01D147616009D78FF /* AppDelegate.h */,
+				22B4BAA11D147616009D78FF /* AppDelegate.m */,
+				22B4BAA31D147616009D78FF /* ViewController.h */,
+				22B4BAA41D147616009D78FF /* ViewController.m */,
+				22B4BAA61D147616009D78FF /* Main.storyboard */,
+				22B4BAA91D147616009D78FF /* Assets.xcassets */,
+				22B4BAAB1D147616009D78FF /* LaunchScreen.storyboard */,
+				22B4BAAE1D147616009D78FF /* Info.plist */,
+				22B4BA9D1D147616009D78FF /* Supporting Files */,
+			);
+			path = SimpleCam;
+			sourceTree = "<group>";
+		};
+		22B4BA9D1D147616009D78FF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				22B4BA9E1D147616009D78FF /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		22B4BAB61D147616009D78FF /* SimpleCamTests */ = {
+			isa = PBXGroup;
+			children = (
+				22B4BAB71D147616009D78FF /* SimpleCamTests.m */,
+				22B4BAB91D147616009D78FF /* Info.plist */,
+			);
+			path = SimpleCamTests;
+			sourceTree = "<group>";
+		};
+		22B4BAC11D147616009D78FF /* SimpleCamUITests */ = {
+			isa = PBXGroup;
+			children = (
+				22B4BAC21D147616009D78FF /* SimpleCamUITests.m */,
+				22B4BAC41D147616009D78FF /* Info.plist */,
+			);
+			path = SimpleCamUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		22B4BA991D147616009D78FF /* SimpleCam */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22B4BAC71D147616009D78FF /* Build configuration list for PBXNativeTarget "SimpleCam" */;
+			buildPhases = (
+				22B4BA961D147616009D78FF /* Sources */,
+				22B4BA971D147616009D78FF /* Frameworks */,
+				22B4BA981D147616009D78FF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SimpleCam;
+			productName = SimpleCam;
+			productReference = 22B4BA9A1D147616009D78FF /* SimpleCam.app */;
+			productType = "com.apple.product-type.application";
+		};
+		22B4BAB21D147616009D78FF /* SimpleCamTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22B4BACA1D147616009D78FF /* Build configuration list for PBXNativeTarget "SimpleCamTests" */;
+			buildPhases = (
+				22B4BAAF1D147616009D78FF /* Sources */,
+				22B4BAB01D147616009D78FF /* Frameworks */,
+				22B4BAB11D147616009D78FF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				22B4BAB51D147616009D78FF /* PBXTargetDependency */,
+			);
+			name = SimpleCamTests;
+			productName = SimpleCamTests;
+			productReference = 22B4BAB31D147616009D78FF /* SimpleCamTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		22B4BABD1D147616009D78FF /* SimpleCamUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22B4BACD1D147616009D78FF /* Build configuration list for PBXNativeTarget "SimpleCamUITests" */;
+			buildPhases = (
+				22B4BABA1D147616009D78FF /* Sources */,
+				22B4BABB1D147616009D78FF /* Frameworks */,
+				22B4BABC1D147616009D78FF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				22B4BAC01D147616009D78FF /* PBXTargetDependency */,
+			);
+			name = SimpleCamUITests;
+			productName = SimpleCamUITests;
+			productReference = 22B4BABE1D147616009D78FF /* SimpleCamUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		22B4BA921D147616009D78FF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Upcast, Inc";
+				TargetAttributes = {
+					22B4BA991D147616009D78FF = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					22B4BAB21D147616009D78FF = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 22B4BA991D147616009D78FF;
+					};
+					22B4BABD1D147616009D78FF = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 22B4BA991D147616009D78FF;
+					};
+				};
+			};
+			buildConfigurationList = 22B4BA951D147616009D78FF /* Build configuration list for PBXProject "SimpleCam" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 22B4BA911D147616009D78FF;
+			productRefGroup = 22B4BA9B1D147616009D78FF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				22B4BA991D147616009D78FF /* SimpleCam */,
+				22B4BAB21D147616009D78FF /* SimpleCamTests */,
+				22B4BABD1D147616009D78FF /* SimpleCamUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		22B4BA981D147616009D78FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22B4BAAD1D147616009D78FF /* LaunchScreen.storyboard in Resources */,
+				22B4BAAA1D147616009D78FF /* Assets.xcassets in Resources */,
+				22B4BAA81D147616009D78FF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22B4BAB11D147616009D78FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22B4BABC1D147616009D78FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		22B4BA961D147616009D78FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22B4BAA51D147616009D78FF /* ViewController.m in Sources */,
+				22B4BAA21D147616009D78FF /* AppDelegate.m in Sources */,
+				22B4BA9F1D147616009D78FF /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22B4BAAF1D147616009D78FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22B4BAB81D147616009D78FF /* SimpleCamTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22B4BABA1D147616009D78FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22B4BAC31D147616009D78FF /* SimpleCamUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		22B4BAB51D147616009D78FF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 22B4BA991D147616009D78FF /* SimpleCam */;
+			targetProxy = 22B4BAB41D147616009D78FF /* PBXContainerItemProxy */;
+		};
+		22B4BAC01D147616009D78FF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 22B4BA991D147616009D78FF /* SimpleCam */;
+			targetProxy = 22B4BABF1D147616009D78FF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		22B4BAA61D147616009D78FF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22B4BAA71D147616009D78FF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		22B4BAAB1D147616009D78FF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22B4BAAC1D147616009D78FF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		22B4BAC51D147616009D78FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		22B4BAC61D147616009D78FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		22B4BAC81D147616009D78FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SimpleCam/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = upcast.SimpleCam;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		22B4BAC91D147616009D78FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SimpleCam/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = upcast.SimpleCam;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		22B4BACB1D147616009D78FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SimpleCamTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = upcast.SimpleCamTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleCam.app/SimpleCam";
+			};
+			name = Debug;
+		};
+		22B4BACC1D147616009D78FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SimpleCamTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = upcast.SimpleCamTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleCam.app/SimpleCam";
+			};
+			name = Release;
+		};
+		22B4BACE1D147616009D78FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SimpleCamUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = upcast.SimpleCamUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SimpleCam;
+			};
+			name = Debug;
+		};
+		22B4BACF1D147616009D78FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SimpleCamUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = upcast.SimpleCamUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SimpleCam;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		22B4BA951D147616009D78FF /* Build configuration list for PBXProject "SimpleCam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22B4BAC51D147616009D78FF /* Debug */,
+				22B4BAC61D147616009D78FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		22B4BAC71D147616009D78FF /* Build configuration list for PBXNativeTarget "SimpleCam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22B4BAC81D147616009D78FF /* Debug */,
+				22B4BAC91D147616009D78FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		22B4BACA1D147616009D78FF /* Build configuration list for PBXNativeTarget "SimpleCamTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22B4BACB1D147616009D78FF /* Debug */,
+				22B4BACC1D147616009D78FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		22B4BACD1D147616009D78FF /* Build configuration list for PBXNativeTarget "SimpleCamUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22B4BACE1D147616009D78FF /* Debug */,
+				22B4BACF1D147616009D78FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 22B4BA921D147616009D78FF /* Project object */;
+}
