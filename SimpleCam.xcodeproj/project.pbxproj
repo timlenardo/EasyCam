@@ -15,6 +15,16 @@
 		22B4BAAD1D147616009D78FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22B4BAAB1D147616009D78FF /* LaunchScreen.storyboard */; };
 		22B4BAB81D147616009D78FF /* SimpleCamTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B4BAB71D147616009D78FF /* SimpleCamTests.m */; };
 		22B4BAC31D147616009D78FF /* SimpleCamUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B4BAC21D147616009D78FF /* SimpleCamUITests.m */; };
+		22B4BAD51D147650009D78FF /* ShutterButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B4BAD21D147650009D78FF /* ShutterButtonView.m */; };
+		22B4BAD61D147650009D78FF /* VideoProgressRing.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B4BAD41D147650009D78FF /* VideoProgressRing.m */; };
+		22B4BADF1D147660009D78FF /* FlashButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B4BAD81D147660009D78FF /* FlashButtonView.m */; };
+		22B4BAE01D147660009D78FF /* FlipButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B4BADA1D147660009D78FF /* FlipButtonView.m */; };
+		22B4BAE11D147660009D78FF /* FocusIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B4BADC1D147660009D78FF /* FocusIndicatorView.m */; };
+		22B4BAE21D147660009D78FF /* GalleryThumbnailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B4BADE1D147660009D78FF /* GalleryThumbnailView.m */; };
+		22B4BAE51D14766E009D78FF /* SimpleCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B4BAE41D14766E009D78FF /* SimpleCameraViewController.m */; };
+		22B4BAE71D1476B1009D78FF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B4BAE61D1476B1009D78FF /* UIKit.framework */; };
+		22B4BAEA1D1476FC009D78FF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B4BAE91D1476FC009D78FF /* Foundation.framework */; };
+		22B4BAEC1D147707009D78FF /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B4BAEB1D147707009D78FF /* Photos.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +61,23 @@
 		22B4BABE1D147616009D78FF /* SimpleCamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleCamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		22B4BAC21D147616009D78FF /* SimpleCamUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimpleCamUITests.m; sourceTree = "<group>"; };
 		22B4BAC41D147616009D78FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22B4BAD11D147650009D78FF /* ShutterButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShutterButtonView.h; path = ../../carousel/carousel/ShutterButtonView.h; sourceTree = "<group>"; };
+		22B4BAD21D147650009D78FF /* ShutterButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShutterButtonView.m; path = ../../carousel/carousel/ShutterButtonView.m; sourceTree = "<group>"; };
+		22B4BAD31D147650009D78FF /* VideoProgressRing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoProgressRing.h; path = ../../carousel/carousel/VideoProgressRing.h; sourceTree = "<group>"; };
+		22B4BAD41D147650009D78FF /* VideoProgressRing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoProgressRing.m; path = ../../carousel/carousel/VideoProgressRing.m; sourceTree = "<group>"; };
+		22B4BAD71D147660009D78FF /* FlashButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlashButtonView.h; path = ../../carousel/carousel/FlashButtonView.h; sourceTree = "<group>"; };
+		22B4BAD81D147660009D78FF /* FlashButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlashButtonView.m; path = ../../carousel/carousel/FlashButtonView.m; sourceTree = "<group>"; };
+		22B4BAD91D147660009D78FF /* FlipButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlipButtonView.h; path = ../../carousel/carousel/FlipButtonView.h; sourceTree = "<group>"; };
+		22B4BADA1D147660009D78FF /* FlipButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlipButtonView.m; path = ../../carousel/carousel/FlipButtonView.m; sourceTree = "<group>"; };
+		22B4BADB1D147660009D78FF /* FocusIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FocusIndicatorView.h; path = ../../carousel/carousel/FocusIndicatorView.h; sourceTree = "<group>"; };
+		22B4BADC1D147660009D78FF /* FocusIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FocusIndicatorView.m; path = ../../carousel/carousel/FocusIndicatorView.m; sourceTree = "<group>"; };
+		22B4BADD1D147660009D78FF /* GalleryThumbnailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GalleryThumbnailView.h; path = ../../carousel/carousel/GalleryThumbnailView.h; sourceTree = "<group>"; };
+		22B4BADE1D147660009D78FF /* GalleryThumbnailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GalleryThumbnailView.m; path = ../../carousel/carousel/GalleryThumbnailView.m; sourceTree = "<group>"; };
+		22B4BAE31D14766E009D78FF /* SimpleCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleCameraViewController.h; path = ../../carousel/carousel/SimpleCameraViewController.h; sourceTree = "<group>"; };
+		22B4BAE41D14766E009D78FF /* SimpleCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SimpleCameraViewController.m; path = ../../carousel/carousel/SimpleCameraViewController.m; sourceTree = "<group>"; };
+		22B4BAE61D1476B1009D78FF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		22B4BAE91D1476FC009D78FF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		22B4BAEB1D147707009D78FF /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +85,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22B4BAEC1D147707009D78FF /* Photos.framework in Frameworks */,
+				22B4BAEA1D1476FC009D78FF /* Foundation.framework in Frameworks */,
+				22B4BAE71D1476B1009D78FF /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +111,7 @@
 		22B4BA911D147616009D78FF = {
 			isa = PBXGroup;
 			children = (
+				22B4BAE81D1476E3009D78FF /* Frameworks */,
 				22B4BA9C1D147616009D78FF /* SimpleCam */,
 				22B4BAB61D147616009D78FF /* SimpleCamTests */,
 				22B4BAC11D147616009D78FF /* SimpleCamUITests */,
@@ -101,6 +132,7 @@
 		22B4BA9C1D147616009D78FF /* SimpleCam */ = {
 			isa = PBXGroup;
 			children = (
+				22B4BAD01D14762E009D78FF /* SimpleCam */,
 				22B4BAA01D147616009D78FF /* AppDelegate.h */,
 				22B4BAA11D147616009D78FF /* AppDelegate.m */,
 				22B4BAA31D147616009D78FF /* ViewController.h */,
@@ -138,6 +170,37 @@
 				22B4BAC41D147616009D78FF /* Info.plist */,
 			);
 			path = SimpleCamUITests;
+			sourceTree = "<group>";
+		};
+		22B4BAD01D14762E009D78FF /* SimpleCam */ = {
+			isa = PBXGroup;
+			children = (
+				22B4BAE31D14766E009D78FF /* SimpleCameraViewController.h */,
+				22B4BAE41D14766E009D78FF /* SimpleCameraViewController.m */,
+				22B4BAD71D147660009D78FF /* FlashButtonView.h */,
+				22B4BAD81D147660009D78FF /* FlashButtonView.m */,
+				22B4BAD91D147660009D78FF /* FlipButtonView.h */,
+				22B4BADA1D147660009D78FF /* FlipButtonView.m */,
+				22B4BADB1D147660009D78FF /* FocusIndicatorView.h */,
+				22B4BADC1D147660009D78FF /* FocusIndicatorView.m */,
+				22B4BADD1D147660009D78FF /* GalleryThumbnailView.h */,
+				22B4BADE1D147660009D78FF /* GalleryThumbnailView.m */,
+				22B4BAD11D147650009D78FF /* ShutterButtonView.h */,
+				22B4BAD21D147650009D78FF /* ShutterButtonView.m */,
+				22B4BAD31D147650009D78FF /* VideoProgressRing.h */,
+				22B4BAD41D147650009D78FF /* VideoProgressRing.m */,
+			);
+			name = SimpleCam;
+			sourceTree = "<group>";
+		};
+		22B4BAE81D1476E3009D78FF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				22B4BAEB1D147707009D78FF /* Photos.framework */,
+				22B4BAE91D1476FC009D78FF /* Foundation.framework */,
+				22B4BAE61D1476B1009D78FF /* UIKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,9 +333,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22B4BAD51D147650009D78FF /* ShutterButtonView.m in Sources */,
 				22B4BAA51D147616009D78FF /* ViewController.m in Sources */,
 				22B4BAA21D147616009D78FF /* AppDelegate.m in Sources */,
+				22B4BAD61D147650009D78FF /* VideoProgressRing.m in Sources */,
 				22B4BA9F1D147616009D78FF /* main.m in Sources */,
+				22B4BAE51D14766E009D78FF /* SimpleCameraViewController.m in Sources */,
+				22B4BADF1D147660009D78FF /* FlashButtonView.m in Sources */,
+				22B4BAE01D147660009D78FF /* FlipButtonView.m in Sources */,
+				22B4BAE21D147660009D78FF /* GalleryThumbnailView.m in Sources */,
+				22B4BAE11D147660009D78FF /* FocusIndicatorView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +486,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SimpleCam/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = upcast.SimpleCam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -427,6 +498,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SimpleCam/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = upcast.SimpleCam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
